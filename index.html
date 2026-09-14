@@ -4,27 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <!-- Google Fonts Connections -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    
+    <!-- Loads Roboto in Regular (400), Medium (500), and Bold (700) weights -->
+    <link href="https://googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header class="header">Header</header>
-        <aside class="sidebar">Sidebar</aside>
+        
+        <div class="sidebar">
+            <p><img src="images/view-dashboard.svg" alt="home icon" class="scalable-logo"></p>
+            <p>Dashboard</p>
+            
+            <p><img src="images/home.svg" alt="home icon" class="scalable-logo"></p>
+            <p><a href="javascript:void(0);" class="dash-item">Home</a></p>
+            
+            <p><img src="images/card-account-details-outline.svg" alt="card account details outline icon" class="scalable-logo"></p>
+            <p><a href="javascript:void(0);" class="dash-item">Profile</a></p>
+            
+            <p><img src="images/message.svg" alt="message icon" class="scalable-logo"></p>
+            <p><a href="javascript:void(0);" class="dash-item">Messages</a></p>
+            
+            <p><img src="images/clock-time-three-outline.svg" alt="clock icon" class="scalable-logo"></p>
+            <p><a href="javascript:void(0);" class="dash-item">History</a></p>
+            
+            <p><img src="images/file-multiple-outline.svg" alt="files icon" class="scalable-logo"></p>
+            <p><a href="javascript:void(0);" class="dash-item">Tasks</a></p>
+            
+            <p><img src="images/account-group.svg" alt="account group icon" class="scalable-logo"></p>
+            <p><a href="javascript:void(0);" class="dash-item">Communities</a></p>
+            
+            <p><img src="images/cog.svg" alt="cog icon" class="scalable-logo"></p>
+            <p><a href="javascript:void(0);" class="dash-item">Settings</a></p>
+
+            <p><img src="images/help-box.svg" alt="help icon" class="scalable-logo"></p>
+            <p><a href="javascript:void(0);" class="dash-item">Support</a></p>
+            
+            <p><img src="images/shield-check.svg" alt="shield tick icon" class="scalable-logo"></p>
+            <p><a href="javascript:void(0);" class="dash-item">Privacy</a></p>
+
+        </div>
+        <div class="header">
+            <span class="search-icon">🔍</span>
+            <input class="search-bar" type="text" name="search-term">
+        </div>
+        
         <main class="main">
-            <div class="projects-container">
+            <div class="projects">
                 <div class="project">project 1</div>
                 <div class="project">project 2</div>
                 <div class="project">project 3</div>
             </div>
-            <div class="announcements-container">
-                <div class="announcement">announcement 1</div>
-                <div class="announcement">announcement 2</div>
-                <div class="announcement">announcement 3</div>
-            </div>
-            <div class="trending-container">
-                <div class="trending">trending 1</div>
-                <div class="trending">trending 2</div>
-                <div class="trending">trending 3</div>
+            <div class="extras">
+                <div class="announcements">
+                    <div class="announcement">announcement 1</div>
+                    <div class="announcement">announcement 2</div>
+                    <div class="announcement">announcement 3</div>
+                </div>
+                <div class="trending">
+                    <div class="trending">trending 1</div>
+                    <div class="trending">trending 2</div>
+                    <div class="trending">trending 3</div>
+                </div>
             </div>
         </main>
     </div>
