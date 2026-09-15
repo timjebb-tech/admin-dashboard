@@ -17,7 +17,7 @@
         
         <div class="sidebar">
             <p><img src="images/view-dashboard.svg" alt="home icon" class="scalable-logo"></p>
-            <p>Dashboard</p>
+            <p><span id = dash-header>Dashboard</span> </p>
             
             <p><img src="images/home.svg" alt="home icon" class="scalable-logo"></p>
             <p><a href="javascript:void(0);" class="dash-item">Home</a></p>
@@ -47,30 +47,44 @@
             <p><a href="javascript:void(0);" class="dash-item">Privacy</a></p>
 
         </div>
-        <div class="header">
-            <span class="search-icon">🔍</span>
-            <input class="search-bar" type="text" name="search-term">
+        <div class="header-container">
+            <div class="header">
+                
+                <div class="search-container">
+                    <span class="search-icon">🔍</span>
+                    <input class="search-bar" type="text" name="search-term">
+                </div>
+                <img src="images/bell-ring-outline.svg" alt="ringing bell icon" class="scalable-logo-noinvert">
+                <img src="images/cat.svg" alt="cat icon" class="scalable-logo-yellow">
+                <p><b>Organ Morgan</b></p>
+
+            </div>
+            <div class="header">
+                <img src="images/cat.svg" alt="cat icon" class="scalable-logo-yellow-big">
+                
+
+            </div>
         </div>
-        
-        <main class="main">
-            <div class="projects">
-                <div class="project">project 1</div>
-                <div class="project">project 2</div>
-                <div class="project">project 3</div>
+            
+        <div class="extras">
+            <div class="announcements">
+                <div class="announcement">announcement 1</div>
+                <div class="announcement">announcement 2</div>
+                <div class="announcement">announcement 3</div>
             </div>
-            <div class="extras">
-                <div class="announcements">
-                    <div class="announcement">announcement 1</div>
-                    <div class="announcement">announcement 2</div>
-                    <div class="announcement">announcement 3</div>
-                </div>
-                <div class="trending">
-                    <div class="trending">trending 1</div>
-                    <div class="trending">trending 2</div>
-                    <div class="trending">trending 3</div>
-                </div>
+            <div class="trending">
+                <div class="trending">trending 1</div>
+                <div class="trending">trending 2</div>
+                <div class="trending">trending 3</div>
             </div>
-        </main>
+        </div>
+
+        <div class="projects">
+            <div class="project">project 1</div>
+            <div class="project">project 2</div>
+            <div class="project">project 3</div>
+        </div>   
+
     </div>
 
 </body>

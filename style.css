@@ -1,8 +1,13 @@
 /* Reset margins for a clean canvas */
-body {
+.sidebar {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   color: white;
+  font-size: 1.2rem;
+}
+
+#dash-header {
+  font-size: 1.7rem;
 }
 
 /* 1. Setup the Grid Structure */
@@ -21,17 +26,46 @@ body {
 .sidebar {
   grid-row: 1 / span 100; 
   grid-column: 1;
-  background-color: rgb(114, 142, 242);
+  background-color: rgb(24, 135, 206);
   display:grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  /* gap: 10px; */
   align-content: start; 
+  align-items: center; 
+  column-gap: 15px; 
+  padding-left: 24px; 
+  grid-template-columns: max-content 1fr; 
 }
 
 .scalable-logo {
   width: 25px;
   height: auto;
   filter: invert(100%) brightness(200%);
+}
+
+.scalable-logo-noinvert {
+  width: 25px;
+  height: auto;
+}
+
+.scalable-logo-yellow {
+  width: 25px;
+  height: auto;
+  filter: invert(66%) sepia(87%) saturate(410%) hue-rotate(5deg) brightness(89%) contrast(92%)
+  drop-shadow(1px 0px 0px #000) 
+          drop-shadow(-1px 0px 0px #000) 
+          drop-shadow(0px 1px 0px #000) 
+          drop-shadow(0px -1px 0px #000);
+}
+
+.scalable-logo-yellow-big {
+  width: 50px;
+  height: auto;
+  filter: invert(66%) sepia(87%) saturate(410%) hue-rotate(5deg) brightness(89%) contrast(92%)
+  drop-shadow(1px 0px 0px #000) 
+          drop-shadow(-1px 0px 0px #000) 
+          drop-shadow(0px 1px 0px #000) 
+          drop-shadow(0px -1px 0px #000);
 }
 
 .dash-item {
@@ -43,13 +77,38 @@ body {
   color: gray;
 }
 
-.header {
+.header-container {
   grid-area: header;
+    /* Layout & Alignment */
+  display: flex;
+  flex-direction: column;
+  align-items: center;      
+  
+
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    /* Layout & Alignment */
+  display: flex;
+  align-items: center;      /* Vertically aligns all items to the middle */
+  gap: 40px;               
+  
+  font-family: 'Roboto', sans-serif;
 }
 
 
-.main {
-  grid-area: main;
+.extras {
+  grid-area: extras;
+  background-color: rgb(24, 135, 206);
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  /* gap: 10px; */
+  align-content: start; 
+  align-items: center; 
+  column-gap: 15px; 
+  padding-left: 24px; 
+  grid-template-columns: max-content 1fr; 
 }
 
 /* 3. The Flexbox Card Container inside Main Content */
@@ -67,7 +126,6 @@ body {
   position: relative;
   display: inline-block;
   width: 100%;
-  max-width: 30%;
   height: 20px;
   border-radius: 9999px; 
   /* 1. Remove the default/black border line */
@@ -91,6 +149,14 @@ body {
 /* Subtle interaction when a user clicks into the search bar */
 .search-bar:focus {
   background-color: #e8e8e8;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Tight, small spacing between icon and text box */
+  flex-grow: 1;     /* Allows the search area to claim available space... */
+  max-width: 500px; /* ...but caps it so it doesn't crowd out future items */
 }
 
 
