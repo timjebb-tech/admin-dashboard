@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+
+    <style>
+    /* (Your card CSS goes here) */
+    .card { display: flex; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); max-width: 400px; overflow: hidden; font-family: sans-serif; }
+    .accent-stripe { width: 6px; background-color: #ff6b00; flex-shrink: 0; }
+    .card-content { display: flex; flex-direction: column; padding: 20px; flex-grow: 1; }
+    .card-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: auto; }
+    .icon-btn { border: none !important; background: transparent !important; cursor: pointer; border-radius: 50%; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+    .icon-btn svg { width: 18px; height: 18px; fill: none !important; stroke: #444444 !important; stroke-width: 2; }
+  </style>
+
+
     <!-- Google Fonts Connections -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -13,6 +25,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="card-container" style="display:flex; gap:16px;"></div>
+
+    <!-- Note type="module" - this lets you import your card file natively -->
+    <script type="module">
+    import { cardBlueprint } from '.script//card-component.js';
+
+    // STEP 2: Update your function to accept a target container ID!
+    function generateCard(title, text, targetContainerId) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(cardBlueprint, 'text/html');
+      const cardElement = doc.body.firstElementChild;
+
+      // Inject the text strings
+      cardElement.querySelector('.card-title').textContent = title;
+      cardElement.querySelector('.card-text').textContent = text;
+
+      // Find the specific container by its ID and insert the card into it
+      document.getElementById(targetContainerId).appendChild(cardElement);
+    }
+
+    // NOW YOU CONTROL EXACTLY WHERE THEY DEPLOY:
+    // Drop card A into the sidebar
+    generateCard(
+      "Sidebar Notice", 
+      "This card is pinned to the sidebar panel layout component.", 
+      "project-card-hook"
+    );
+    </script>
+
+
     <div class="container">
         
         <div class="sidebar">
@@ -48,6 +90,7 @@
 
         </div>
         <div class="header-container">
+            
             <div class="header">
                 
                 <div class="search-container">
@@ -61,7 +104,13 @@
             </div>
             <div class="header">
                 <img src="images/cat.svg" alt="cat icon" class="scalable-logo-yellow-big">
-                
+                <div class="greeting">
+                    <p>Hi there</p>
+                    <p>Organ Morgan (@Organ)</p>
+                </div>
+                <button class="butt">New</button>
+                <button class="butt">Upload</button>
+                <button class="butt">Share</button>
 
             </div>
         </div>
@@ -79,13 +128,49 @@
             </div>
         </div>
 
-        <div class="projects">
-            <div class="project">project 1</div>
-            <div class="project">project 2</div>
-            <div class="project">project 3</div>
+        <div class="projects-container">
+
+            <h1>Your Projects</h1>
+            
+                <div class="projects-box">
+                    <div id="project-card-hook"></div>
+                
+
+                
+
+            </div>
         </div>   
 
     </div>
 
+
+     <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script type="module">
+        import { cardBlueprint } from './script/card-component.js';
+
+        // STEP 2: Update your function to accept a target container ID!
+        function generateCard(title, text, targetContainerId) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(cardBlueprint, 'text/html');
+        const cardElement = doc.body.firstElementChild;
+
+        // Inject the text strings
+        cardElement.querySelector('.card-title').textContent = title;
+        cardElement.querySelector('.card-text').textContent = text;
+
+        // Find the specific container by its ID and insert the card into it
+        document.getElementById(targetContainerId).appendChild(cardElement);
+        }
+
+        // NOW YOU CONTROL EXACTLY WHERE THEY DEPLOY:
+  
+
+        // Drop card B into the main content block
+        generateCard(
+        "Primary Analytics", 
+        "This completely separate card is rendering inside the main window block frame.", 
+        "project-card-hook"
+        );
+    </script>
 </body>
 </html>

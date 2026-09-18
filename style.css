@@ -1,10 +1,14 @@
-/* Reset margins for a clean canvas */
-.sidebar {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  color: white;
-  font-size: 1.2rem;
+:root {
+  /* Variable Names MUST start with -- */
+  --myblue: rgb(24, 135, 206);  
+  --mypink: rgb(228, 39, 177);
+  --mygreen: rgb(118, 235, 94);
+  --myyellow: rgb(235, 244, 57);
 }
+
+
+
+
 
 #dash-header {
   font-size: 1.7rem;
@@ -14,7 +18,7 @@
 .container {
   display: grid;
   grid-template-columns: 250px repeat(4, 1fr); /* Sidebar width, then remaining space */
-  grid-template-rows: 60px auto;      /* Header height, then remaining space */
+  minmax(60px, auto);      /* Header height, then remaining space */
   grid-auto-rows: 200px; 
   grid-template-areas:
     "sidebar header header header header"
@@ -24,9 +28,13 @@
 
 /* 2. Assign Elements to Grid Areas */
 .sidebar {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 1.2rem;
   grid-row: 1 / span 100; 
   grid-column: 1;
-  background-color: rgb(24, 135, 206);
+  background-color: var(--myblue);
   display:grid;
   grid-template-columns: 1fr 1fr;
   /* gap: 10px; */
@@ -82,9 +90,9 @@
     /* Layout & Alignment */
   display: flex;
   flex-direction: column;
-  align-items: center;      
-  
-
+  align-items: stretch;     
+  width: 100%;
+  background-color: var(--mypink);
   font-family: 'Roboto', sans-serif;
 }
 
@@ -93,14 +101,15 @@
   display: flex;
   align-items: center;      /* Vertically aligns all items to the middle */
   gap: 40px;               
-  
+  justify-content: space-between; /* Pushes the left and right groups to the outer edges */
+  padding: 0 30px;
   font-family: 'Roboto', sans-serif;
 }
 
 
 .extras {
   grid-area: extras;
-  background-color: rgb(24, 135, 206);
+  background-color: var(--mygreen);
   display:grid;
   grid-template-columns: 1fr 1fr;
   /* gap: 10px; */
@@ -109,10 +118,17 @@
   column-gap: 15px; 
   padding-left: 24px; 
   grid-template-columns: max-content 1fr; 
+  grid-row: 2 / span 100; 
 }
 
 /* 3. The Flexbox Card Container inside Main Content */
 .projects-container {
+  grid-area: projects;
+  background-color: var(--myyellow);
+  grid-row: 2 / span 100; 
+}
+
+.projects-box {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -178,4 +194,125 @@
 
 .trending {
   flex: 1 1 200px; /* Grow, shrink, and base width */
+}
+
+.butt {
+  /* Step 1: Remove default borders and styles */
+  border: none;
+  background-color: var(--myblue); /* Your mustard yellow color */
+  color: #000000;            /* Text color */
+  
+  /* Step 2: Make the ends perfectly round */
+  border-radius: 100px;      /* Any large pixel number creates the pill shape */
+  
+  /* Step 3: Use padding to let the button size itself based on text length */
+  padding: 10px 24px;        /* Top/Bottom padding, Left/Right padding */
+  
+  /* Step 4: Font & layout styling */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  
+  /* Optional: Smooth color transition on hover */
+  transition: background-color 0.2s ease;
+}
+
+.butt:hover {
+  background-color: #c49600; 
+}
+
+/* Core Card Styles */
+/* Core Card Styles */
+.card {
+  position: relative;
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 400px;
+  overflow: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Orange Stripe (Left Hand Side) */
+.accent-stripe {
+  width: 6px;
+  background-color: #ff6b00;
+  flex-shrink: 0;
+}
+
+/* Inner Layout Structure */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.card-title {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.card-text {
+  margin: 0 0 20px 0;
+  font-size: 0.95rem;
+  color: #555555;
+  line-height: 1.5;
+}
+
+/* 3 Icon Buttons Container */
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: auto;
+}
+
+/* Fixed Icon Button Style (Removes default browser borders/backgrounds) */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  
+  /* Critical Reset Properties */
+  border: none !important;            /* Removes the harsh default button border */
+  outline: none;                      /* Removes default focus outline rings */
+  background: transparent !important; /* Removes default grey browser button background */
+  
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Subtle hover background ring */
+.icon-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important; /* Adds a soft circular shade on hover */
+}
+
+.icon-btn:active {
+  transform: scale(0.95);
+}
+
+/* SVG Line Graphic Overrides */
+.icon-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none !important;             /* Explicitly keeps the icons as hollow outlines */
+  stroke: #444444 !important;        /* Sets the dark outline color */
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.2s ease;
+}
+
+/* Changes the icon outline color to orange when hovering over the button */
+.icon-btn:hover svg {
+  stroke: #ff6b00 !important; 
 }
