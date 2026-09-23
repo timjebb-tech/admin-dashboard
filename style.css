@@ -7,9 +7,6 @@
 }
 
 
-
-
-
 #dash-header {
   font-size: 1.7rem;
 }
@@ -121,21 +118,25 @@
   grid-row: 2 / span 100; 
 }
 
-/* 3. The Flexbox Card Container inside Main Content */
 .projects-container {
   grid-area: projects;
   background-color: var(--myyellow);
   grid-row: 2 / span 100; 
+  
 }
 
-.projects-box {
+.project-title {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-direction: column; /* Stacks the title on top of the row */
 }
-
-.project {
-  flex: 1 1 200px; /* Grow, shrink, and base width */
+/* 3. The Flexbox Card Container inside Main Content */
+.projects-cards-container {
+  flex-flow: wrap;
+  row-gap: 10px;
+  column-gap: 0px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start; /* Keeps wrapped items aligned to the left */
 }
 
 .search-bar {
@@ -223,16 +224,20 @@
 }
 
 /* Core Card Styles */
-/* Core Card Styles */
 .card {
   position: relative;
   display: flex;
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  max-width: 400px;
-  overflow: hidden;
+  width: 400px;
+  height: 200px;
   font-family: system-ui, -apple-system, sans-serif;
+  gap: 15px; /* Space BETWEEN items */
+  
+  /* Adds space at the START (left) and END (right) of the row */
+  margin-left: 20px;  
+  margin-right: 10px; 
+
 }
 
 /* Orange Stripe (Left Hand Side) */
