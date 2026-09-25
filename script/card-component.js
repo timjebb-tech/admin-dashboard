@@ -41,3 +41,13 @@ export const cardBlueprint = `
     </div>
   </div>
 `;
+
+export const trendingBlueprint = `
+  <div class="trending">
+    <div class="trending-content">
+      <img class="trending-logo">
+      <h3 class="trending-title"></h3>
+      <p class="trending-text"></p>
+    </div>
+  </div>
+`;

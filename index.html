@@ -77,15 +77,35 @@
         </div>
             
         <div class="extras">
-            <div class="announcements">
-                <div class="announcement">announcement 1</div>
-                <div class="announcement">announcement 2</div>
-                <div class="announcement">announcement 3</div>
+            <div class="extras-title">
+                <h3>Accouncements</h3>
             </div>
-            <div class="trending">
-                <div class="trending">trending 1</div>
-                <div class="trending">trending 2</div>
-                <div class="trending">trending 3</div>
+            <div class="announcements">
+                <div class="announcement">
+                    <h4>Site Maintenance</h4>
+                    <p>The site will be maintained at some point</p>
+                </div>
+                <div class="announcement">
+                    <h4>Community Share Day</h4>
+                    <p>The The community will be shared between 43 people</p>
+                </div>
+                <div class="announcement">
+                    <h4>Updated Privacy Policy</h4>
+                    <p>Your privacy may be invaded by management ant any time, anywhere</p>
+                </div>
+            </div>
+            <div class="extras-title">
+                <h3>Trending</h3>
+                
+            </div>
+            <div class="trendings">
+                <div id="trending-hook"></div>
+                <!-- <div class="trending-card">
+                    <p><img src="images/clock-time-three-outline.svg" alt="clock icon" class="scalable-logo"></p>
+                    <p>@morgan</p>
+                    <p>Super Cool Project</p>
+                </div> -->
+                
             </div>
         </div>
         <div class="projects-container">
@@ -102,7 +122,7 @@
 
      <!-- ================= JAVASCRIPT LOGIC ================= -->
     <script type="module">
-        import { cardBlueprint } from './script/card-component.js';
+        import { cardBlueprint, trendingBlueprint } from './script/card-component.js';
 
         function generateCard(title, text, targetContainerId) {
             const parser = new DOMParser();
@@ -117,6 +137,21 @@
 
             // Find the specific container by its ID and insert the card into it
             document.getElementById(targetContainerId).appendChild(cardElement);
+        }
+
+        function generateTrending(image, title, text, targetContainerId) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(trendingBlueprint, 'text/html');
+            const trendingElement = doc.body.firstElementChild;
+
+            // Inject the text strings
+            trendingElement.querySelector('.trending-logo').textContent = image;
+            trendingElement.querySelector('.trending-title').textContent = title;
+            const maxLength = 100;
+            trendingElement.querySelector('.trending-text').textContent = text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+
+            // Find the specific container by its ID and insert the card into it
+            document.getElementById(targetContainerId).appendChild(trendingElement);
         }
 
         generateCard(
@@ -144,6 +179,14 @@
         "From Harold. He's that most dangerous of creatures, a clever sheep. 'e's realized that a sheep's life consists of standin' around for a few months and then bein' eaten. And that's a depressing prospect for an ambitious sheep.", 
         "project-card-hook"
         );
+
+        generateTrending(
+            "./images/cat.svg",
+            "@morgan", 
+            "Super Cool Project", 
+            "trending-hook"
+        );
+        
     </script>
 </body>
 </html>

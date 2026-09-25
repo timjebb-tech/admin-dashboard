@@ -33,7 +33,7 @@
   grid-column: 1;
   background-color: var(--myblue);
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  
   /* gap: 10px; */
   align-content: start; 
   align-items: center; 
@@ -106,6 +106,11 @@
 
 .extras {
   grid-area: extras;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 1.2rem;
+  grid-row: 2  / span 100; 
   background-color: var(--mygreen);
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -114,8 +119,7 @@
   align-items: center; 
   column-gap: 15px; 
   padding-left: 24px; 
-  grid-template-columns: max-content 1fr; 
-  grid-row: 2 / span 100; 
+  grid-template-columns: 1fr;   
 }
 
 .projects-container {
@@ -128,6 +132,9 @@
 .project-title {
   display: flex;
   flex-direction: column; /* Stacks the title on top of the row */
+  padding: 10px;
+  padding-left: 20px;
+  
 }
 /* 3. The Flexbox Card Container inside Main Content */
 .projects-cards-container {
