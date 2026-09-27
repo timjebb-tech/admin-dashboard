@@ -104,29 +104,13 @@
 }
 
 
-.extras {
-  grid-area: extras;
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  color: white;
-  font-size: 1.2rem;
-  grid-row: 2  / span 100; 
-  background-color: var(--mygreen);
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  /* gap: 10px; */
-  align-content: start; 
-  align-items: center; 
-  column-gap: 15px; 
-  padding-left: 24px; 
-  grid-template-columns: 1fr;   
-}
+
 
 .projects-container {
   grid-area: projects;
   background-color: var(--myyellow);
   grid-row: 2 / span 100; 
-  
+  font-size: 1.2rem;
 }
 
 .project-title {
@@ -134,6 +118,7 @@
   flex-direction: column; /* Stacks the title on top of the row */
   padding: 10px;
   padding-left: 20px;
+  font-family: 'Roboto', sans-serif;
   
 }
 /* 3. The Flexbox Card Container inside Main Content */
@@ -183,22 +168,40 @@
   max-width: 500px; /* ...but caps it so it doesn't crowd out future items */
 }
 
+.announcement h4 {
+  margin: 0 0 4px 0; 
+  font-size: 1.1rem;
+}
 
-.announcements-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+.announcement p {
+  /* 💡 TIP: You can safely remove 'flex: 1 1 200px' from the paragraph tag itself, 
+     as it only needs to be defined on the parent .announcement wrapper! */
+  color: black;
+  margin: 0;
 }
 
 .announcement {
-  flex: 1 1 200px; /* Grow, shrink, and base width */
+  flex: 0 0 auto; 
+  color: black;
+  width: 100%;
+  
+  /* 🌟 THE INNER FIX: Controls the exact gap inside the box above the border line */
+  padding-bottom: 16px; 
+  
+  /* Controls the outer gap between the border line and the next card's heading */
+  margin-bottom: 16px; 
+  
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
 }
 
-.trending-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+/* CLEAN UP: Hide the border and spacing on the very last item */
+.announcement:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0; /* Keeps the last item snug against the bottom of the container */
 }
+
+
 
 .trending {
   flex: 1 1 200px; /* Grow, shrink, and base width */
@@ -247,11 +250,54 @@
 
 }
 
+.extras-container {
+  grid-area: extras;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 1.2rem;
+  grid-row: 2  / span 100; 
+  background-color: var(--mygreen);
+  display:grid;
+  align-content: start; 
+  align-items: center; 
+  column-gap: 15px; 
+  padding-left: 24px; 
+  grid-template-columns: 1fr;   
+  padding-right: 24px;
+}
+
+.extras-title {
+  display: flex;
+  flex-direction: column; /* Stacks the title on top of the row */
+  padding: 10px;
+  padding-left: 20px;
+  color: black;
+}
+
+.announcements {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 12px;
+  font-family: system-ui, -apple-system, sans-serif;
+  align-items: center;
+  padding: 20px 20px 20px 36px;
+  overflow: hidden;
+}
+
 /* Orange Stripe (Left Hand Side) */
 .accent-stripe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
   width: 6px;
   background-color: #ff6b00;
-  flex-shrink: 0;
+   border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  
 }
 
 /* Inner Layout Structure */
@@ -327,4 +373,10 @@
 /* Changes the icon outline color to orange when hovering over the button */
 .icon-btn:hover svg {
   stroke: #ff6b00 !important; 
+}
+
+.trending-logo {
+  width: 25px;
+  height: auto;
+  filter: invert(100%) brightness(200%);
 }
