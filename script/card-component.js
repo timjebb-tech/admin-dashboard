@@ -44,10 +44,10 @@ export const cardBlueprint = `
 
 export const trendingBlueprint = `
   <div class="trending">
+    <img class="trending-logo">
     <div class="trending-content">
-      <img class="trending-logo">
-      <h3 class="trending-title"></h3>
-      <p class="trending-text"></p>
+        <h4 class="trending-title"></h3>
+        <p class="trending-text"></p>
     </div>
   </div>
 `;
