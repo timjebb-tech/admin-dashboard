@@ -16,7 +16,7 @@
   display: grid;
   grid-template-columns: 250px repeat(4, 1fr); /* Sidebar width, then remaining space */
   minmax(60px, auto);      /* Header height, then remaining space */
-  grid-auto-rows: 200px; 
+  grid-auto-rows: 150px; 
   grid-template-areas:
     "sidebar header header header header"
     "sidebar projects projects projects extras";
@@ -97,13 +97,63 @@
     /* Layout & Alignment */
   display: flex;
   align-items: center;      /* Vertically aligns all items to the middle */
-  gap: 40px;               
+  gap: 80px;               
   justify-content: space-between; /* Pushes the left and right groups to the outer edges */
   padding: 0 30px;
   font-family: 'Roboto', sans-serif;
+  
 }
 
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Tight, small spacing between icon and text box */
+  flex:2;
+}
 
+.search-bar {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  border-radius: 9999px; 
+  /* 1. Remove the default/black border line */
+  border: none;
+  flex: 3; 
+  /* 2. Add a soft, light grey background color */
+  background-color: #d9e2ec;
+  
+  /* 3. Strip away default browser focus outlines */
+  outline: none;
+}
+.search-bar .search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none; /* Let clicks pass directly through to the text input */
+  opacity: 0.6;
+}
+/* Subtle interaction when a user clicks into the search bar */
+.search-bar:focus {
+  background-color: #e8e8e8;
+}
+
+.iconsname-container {
+  display: flex;
+  flex: 0 0 200px;
+  justify-content:space-between;
+}
+
+.icongreeting {
+  display: flex;
+  gap:20px;
+}
+
+#big {
+  font-size: 20px;
+  font-weight: bold;
+}
 
 
 .projects-container {
@@ -131,42 +181,6 @@
   justify-content: flex-start; /* Keeps wrapped items aligned to the left */
 }
 
-.search-bar {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  height: 20px;
-  border-radius: 9999px; 
-  /* 1. Remove the default/black border line */
-  border: none;
-  
-  /* 2. Add a soft, light grey background color */
-  background-color: #d9e2ec;
-  
-  /* 3. Strip away default browser focus outlines */
-  outline: none;
-}
-.search-bar .search-icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-  pointer-events: none; /* Let clicks pass directly through to the text input */
-  opacity: 0.6;
-}
-/* Subtle interaction when a user clicks into the search bar */
-.search-bar:focus {
-  background-color: #e8e8e8;
-}
-
-.search-container {
-  display: flex;
-  align-items: center;
-  gap: 6px; /* Tight, small spacing between icon and text box */
-  flex-grow: 1;     /* Allows the search area to claim available space... */
-  max-width: 500px; /* ...but caps it so it doesn't crowd out future items */
-}
 
 .announcements {
   position: relative;
@@ -217,7 +231,7 @@
   /* Step 1: Remove default borders and styles */
   border: none;
   background-color: var(--myblue); /* Your mustard yellow color */
-  color: #000000;            /* Text color */
+  color: white;            /* Text color */
   
   /* Step 2: Make the ends perfectly round */
   border-radius: 100px;      /* Any large pixel number creates the pill shape */
