@@ -4,6 +4,8 @@
   --mypink: rgb(228, 39, 177);
   --mygreen: rgb(118, 235, 94);
   --myyellow: rgb(235, 244, 57);
+  --mygrey: rgb(222, 229, 238);
+  --myorange: rgb(238, 171, 37);
 }
 
 
@@ -89,7 +91,7 @@
   flex-direction: column;
   align-items: stretch;     
   width: 100%;
-  background-color: var(--mypink);
+  background-color: white;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -97,11 +99,11 @@
     /* Layout & Alignment */
   display: flex;
   align-items: center;      /* Vertically aligns all items to the middle */
-  gap: 80px;               
+  gap: 150px;               
   justify-content: space-between; /* Pushes the left and right groups to the outer edges */
   padding: 0 30px;
   font-family: 'Roboto', sans-serif;
-  
+  gap:100x;
 }
 
 .search-container {
@@ -114,13 +116,13 @@
 .search-bar {
   position: relative;
   display: inline-block;
-  height: 20px;
+  height: 35px;
   border-radius: 9999px; 
   /* 1. Remove the default/black border line */
   border: none;
   flex: 3; 
-  /* 2. Add a soft, light grey background color */
-  background-color: #d9e2ec;
+  
+  background-color: var(--mygrey);
   
   /* 3. Strip away default browser focus outlines */
   outline: none;
@@ -137,6 +139,11 @@
 /* Subtle interaction when a user clicks into the search bar */
 .search-bar:focus {
   background-color: #e8e8e8;
+}
+
+.mybutts {
+  display: flex;
+  gap: 25px; 
 }
 
 .iconsname-container {
@@ -158,7 +165,7 @@
 
 .projects-container {
   grid-area: projects;
-  background-color: var(--myyellow);
+  background-color: var(--mygrey);
   grid-row: 2 / span 100; 
   font-size: 1.2rem;
 }
@@ -174,7 +181,7 @@
 /* 3. The Flexbox Card Container inside Main Content */
 .projects-cards-container {
   flex-flow: wrap;
-  row-gap: 10px;
+  row-gap: 30px;
   column-gap: 0px;
   display: flex;
   flex-flow: row wrap;
@@ -255,13 +262,14 @@
 
 /* Core Card Styles */
 .card {
+  
+  font-size: 1.2rem;
   position: relative;
   display: flex;
   background-color: #ffffff;
   border-radius: 12px;
-  width: 400px;
-  height: 200px;
-  font-family: system-ui, -apple-system, sans-serif;
+  width: 450px;
+  height: 250px;
   gap: 15px; /* Space BETWEEN items */
   
   /* Adds space at the START (left) and END (right) of the row */
@@ -277,7 +285,7 @@
   color: white;
   font-size: 1.2rem;
   grid-row: 2  / span 100; 
-  background-color: var(--mygreen);
+  background-color: var(--mygrey);
   display:grid;
   align-content: start; 
   align-items: center; 
@@ -304,7 +312,7 @@
   top: 0;
   bottom: 0;
   width: 6px;
-  background-color: #ff6b00;
+  background-color: var(--myorange);
    border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
   
@@ -319,15 +327,17 @@
 }
 
 .card-title {
+  font-family: 'Roboto', sans-serif;
   margin: 0 0 8px 0;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: #1a1a1a;
   font-weight: 600;
 }
 
 .card-text {
+  font-family: 'Roboto', sans-serif;
   margin: 0 0 20px 0;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   color: #555555;
   line-height: 1.5;
 }
